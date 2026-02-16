@@ -1,20 +1,25 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.13
+Date: 2026-02-13
+  Compatibility:
+      - Add void recipes for the new fluids (e.g. Ammonia) to either Flare Stack of Clarifier, where appropriate.
+---------------------------------------------------------------------------------------------------
 Version: 0.0.12
 Date: 2026-02-13
   Bugs:
-      - Fix dependency on bobtech
+      - Fix dependency on bobtech.
   Info:
-      - Add thumbnail
+      - Add thumbnail.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.11
 Date: 2026-02-13
   Balancing:
-      - Make biolab require lab2 and alien lab if present
+      - Make biolab require lab2 and alien lab if present.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.10
 Date: 2026-02-13
   Info:
-      - (Oops) Add optional dependencies on bobwarfare and angelsrefining to reflect the use in 0.0.9
+      - (Oops) Add optional dependencies on bobwarfare and angelsrefining to reflect the use in 0.0.9.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.9
 Date: 2026-02-13
@@ -26,12 +31,12 @@ Version: 0.0.8
 Date: 2026-02-09
   Compatibility:
       - WARNING! Make Simple Coal Liquefaction output Base Mineral Oil instead of Naphtha.
-        WARNING! This will break existing Vulcanus setups as I cannot safely migrate Naphtha into Base Mineral Oil
+        WARNING! This will break existing Vulcanus setups as I cannot safely migrate Naphtha into Base Mineral Oil.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.7
 Date: 2026-02-09
   Compatibility:
-      - Change Vulcanis sulfuric acid geyser output angels-liquid-sulfuric-acid for compatibility
+      - Change Vulcanis sulfuric acid geyser output angels-liquid-sulfuric-acid for compatibility.
   Balancing: 
       - Make heat shields a little cheaper and faster.
 ---------------------------------------------------------------------------------------------------

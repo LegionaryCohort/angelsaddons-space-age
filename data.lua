@@ -35,6 +35,8 @@ if mods["angelspetrochem"] then
   OV.global_replace_item("sulfuric-acid", "angels-liquid-sulfuric-acid")
 end
 
+OV.execute()
+
 -- bobswarfare adds coal to the firearm-magazine recipe, but coal is not readily available in space. This adds another recipe for firearm-magazine that uses carbon instead of coal.
 if mods["bobwarfare"] then
   local copy = table.deepcopy(data.raw["recipe"]["firearm-magazine"])
@@ -51,4 +53,12 @@ if mods["bobwarfare"] then
   data:extend{copy}
 end
 
-OV.execute()
+-- Adding void recipes for space-age-fluids.
+-- Notice that I didn't include Holmium Solution since it is ore based. It wouldn't make sense to void it.
+angelsmods.functions.make_void("ammonia", "chemical")
+angelsmods.functions.make_void("ammoniacal-solution", "water")
+angelsmods.functions.make_void("electrolyte", "chemical")
+angelsmods.functions.make_void("fluoroketone-hot", "chemical")
+angelsmods.functions.make_void("fluoroketone-cold", "chemical")
+angelsmods.functions.make_void("fluorine", "chemical")
+angelsmods.functions.make_void("lithium-brine", "water")
