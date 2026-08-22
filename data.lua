@@ -10,7 +10,8 @@ data.raw.tile["oil-ocean-deep"].fluid = "crude-oil"
 if mods["bobelectronics"] then
     local scrap_results = data.raw["recipe"]["scrap-recycling"].results
     table.insert(scrap_results,
-        {type = "item", name = "electronic-circuit",        amount = 1, probability = 0.2, show_details_in_recipe_tooltip = false})
+        {type = "item", name = "electronic-circuit", amount = 1, probability = 0.1, show_details_in_recipe_tooltip = false})
+	data.raw.furnace["recycler"].result_inventory_size = 13
 end
 
 -- merge carbon from space age into angels carbon, see also migrations
