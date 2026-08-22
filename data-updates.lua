@@ -1,7 +1,3 @@
-
-
-
-
 if mods["angelspetrochem"] then
     -- Angelspetrochem wrongly replaces heavy oil with naphtha in simple-coal-liquefaction,
     -- which cant' easily be turned into lubricant. Replace it with base mineral oil
@@ -12,7 +8,7 @@ end
 
 if mods["loader_mini_1x1"] then
     -- use teir 5 belt as input
-    bobmods.lib.recipe.replace_ingredient("loader-mini5", "bob-turbo-transport-belt", "bob-ultimate-transport-belt")
+    bobmods.lib.recipe.replace_ingredient("loader-mini5", "turbo-transport-belt", "bob-ultimate-transport-belt")
 
     -- loader_mini_1x1 MK4 and MK5 have their colors swapped when comparing with bobslogistics. Swap them!
     local tech_icon4 = data.raw.technology["loader-mini4"].icon
@@ -37,9 +33,9 @@ if mods["loader_mini_1x1"] then
 end
 
 -- BALANCING
--- Space age makes rocket-part(s) are way cheaper than vanilla rockets. The goal of the game is no longer to launch a single rocket, but very very many.
+-- Space age makes rocket-part(s) way cheaper than vanilla rockets. The goal of the game is no longer to launch a single rocket, but very very many.
 -- In the same vein, adding space age to Bob/Angels should make rockets cheaper again, even if bobrevamp and angelspetrochem makes them more expensive.
--- We recuce the ingredients needed for rocket parts. low-density-structure and rocket-fuel are already at 1, so we just halve the ingredients of them in turn.
+-- We reduce the ingredients needed for rocket parts: low-density-structure and rocket-fuel are already at 1, so we just halve the ingredients of them in turn.
 if mods["bobrevamp"] then
     if data.raw.item["bob-tungsten-pipe"] then
         bobmods.lib.recipe.set_ingredient("rocket-part", { type = "item", name = "bob-tungsten-pipe", amount = 15 })
@@ -86,4 +82,25 @@ end
 
 if lab2 then
     bobmods.lib.recipe.replace_ingredient("biolab", "lab", "bob-lab-2")
+end
+
+-- SPACE ORE
+-- As discussed in this forum post (https://mods.factorio.com/mod/angelsaddons-space-age/discussion/6985b9f28a864037e5e3ab33)
+-- Adjusts some recipes to allow the production of Angel's Ores in space
+if mods["angelspetrochem"] then
+	bobmods.lib.recipe.replace_ingredient("angels-filter-coal", "coal", "angels-solid-carbon")
+end
+
+local tech_asteroid_processing = data.raw.technology["advanced-asteroid-processing"]
+table.insert(tech_asteroid_processing.effects, {
+    type = "unlock-recipe",
+    recipe = "angelsaddons-space-age-asteroid-dissolution"
+})
+
+if mods["bobwarfare"] then
+	local tech_space_platform = data.raw.technology["space-platform"]
+	table.insert(tech_space_platform.effects, {
+		type = "unlock-recipe",
+		recipe = "firearm-magazine-carbon"
+	})
 end

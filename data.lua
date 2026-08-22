@@ -6,13 +6,6 @@ local OV = angelsmods.functions.OV
 data.raw.tile["oil-ocean-shallow"].fluid = "crude-oil"
 data.raw.tile["oil-ocean-deep"].fluid = "crude-oil"
 
--- Change sulfuric acid geyser to angels-liquid-sulfuric-acid
-if mods["angelspetrochem"] then
-    data.raw["resource"]["sulfuric-acid-geyser"]["minable"].results = {
-    { type = "fluid", name = "angels-liquid-sulfuric-acid", amount_min = 10, amount_max = 10, probability = 1 },
-    }
-end
-
 -- Many Fulgora recipes require electronic-circuit but there is no way to get them on Fulgora. 
 if mods["bobelectronics"] then
     local scrap_results = data.raw["recipe"]["scrap-recycling"].results
@@ -26,31 +19,23 @@ if mods["angelspetrochem"] then
   data.raw.recipe["carbon"].icon = data.raw.recipe["angels-solid-carbon"].icon
 end
 
--- space-age adds turbo-transport-belt, merge it with bob's version for interoperability, see also migrations
-if mods["boblogistics"] then
-  OV.global_replace_item("turbo-transport-belt", "bob-turbo-transport-belt")
-end
-
-if mods["angelspetrochem"] then
-  OV.global_replace_item("sulfuric-acid", "angels-liquid-sulfuric-acid")
-end
-
 OV.execute()
 
 -- bobswarfare adds coal to the firearm-magazine recipe, but coal is not readily available in space. This adds another recipe for firearm-magazine that uses carbon instead of coal.
 if mods["bobwarfare"] then
-  local copy = table.deepcopy(data.raw["recipe"]["firearm-magazine"])
-  copy.name = "firearm-magazine-carbon"
-  copy.surface_conditions = {{
+  local firearm_mags_from_carbon = table.deepcopy(data.raw["recipe"]["firearm-magazine"])
+  firearm_mags_from_carbon.name = "firearm-magazine-carbon"
+  firearm_mags_from_carbon.enabled = false
+  firearm_mags_from_carbon.surface_conditions = {{
     property = "gravity",
     max = 0.1
   }}
-  copy.ingredients = {
+  firearm_mags_from_carbon.ingredients = {
     {type = "item", name = "iron-plate", amount = 2},
     {type = "item", name = "carbon", amount = 1}
   }
 
-  data:extend{copy}
+  data:extend{firearm_mags_from_carbon}
 end
 
 -- Adding void recipes for space-age-fluids.
@@ -62,3 +47,47 @@ angelsmods.functions.make_void("fluoroketone-hot", "chemical")
 angelsmods.functions.make_void("fluoroketone-cold", "chemical")
 angelsmods.functions.make_void("fluorine", "chemical")
 angelsmods.functions.make_void("lithium-brine", "water")
+
+-- TODO: Add localization for the recipe
+-- SPACE ORE
+-- As discussed in this forum post (https://mods.factorio.com/mod/angelsaddons-space-age/discussion/6985b9f28a864037e5e3ab33)
+-- Adjusts some recipes to allow the production of Angel's Ores in space
+data:extend{
+  {
+    type = "recipe",
+    name = "angelsaddons-space-age-asteroid-dissolution",
+    category = "angels-liquifying",
+    subgroup = "angels-liquifying",
+    energy_required = 5,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "metallic-asteroid-chunk", amount = 1 },
+      { type = "fluid", name = "angels-liquid-ferric-chloride-solution", amount = 20 },
+    },
+    results = {
+      { type = "fluid", name = "angels-slag-slurry", amount = 50 },
+    },
+    always_show_products = true,
+    icons = angelsmods.functions.create_liquid_recipe_icon(
+      nil,
+      { { 142, 079, 028 }, { 107, 062, 021 }, { 075, 040, 015 } },
+      { "metallic-asteroid-chunk" }
+    ),
+    crafting_machine_tint = angelsmods.functions.get_fluid_recipe_tint("angels-slag-slurry"),
+    order = "i [slag-processing-dissolution]-a",
+  }
+}
+
+-- TODO: Give other planets something more to do
+-- Gleba:
+--		Bacteria decay into ferrous and cupric powder
+--		Add reverse sorting recipes to get back the 6 base ores (already crushed)
+-- Vulcanus: 
+--		Merge vanilla molten iron/copper with angels fluids
+--		Disable (most) strong recipes for casting -> perhaps just change some and make them available earlier for strand casting
+--		Enable foundry to act as strand caster
+--		Add aditional recipes for lava to molten metal to cover the other base metals (scaled to lower quantities) -> generally these should always yield 2 molten ores at once
+--		Add foundry recipes for mixing liquid metals into alloys
+-- Fulgora:
+--		Recycler needs extra inventory slots (up to 14)
