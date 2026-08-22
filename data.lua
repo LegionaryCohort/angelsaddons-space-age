@@ -49,7 +49,6 @@ angelsmods.functions.make_void("fluoroketone-cold", "chemical")
 angelsmods.functions.make_void("fluorine", "chemical")
 angelsmods.functions.make_void("lithium-brine", "water")
 
--- TODO: Add localization for the recipe
 -- SPACE ORE
 -- As discussed in this forum post (https://mods.factorio.com/mod/angelsaddons-space-age/discussion/6985b9f28a864037e5e3ab33)
 -- Adjusts some recipes to allow the production of Angel's Ores in space
@@ -79,16 +78,3 @@ data:extend{
     order = "i [slag-processing-dissolution]-a",
   }
 }
-
--- TODO: Give other planets something more to do
--- Gleba:
---		Bacteria decay into ferrous and cupric powder
---		Add reverse sorting recipes to get back the 6 base ores (already crushed)
--- Vulcanus: 
---		Merge vanilla molten iron/copper with angels fluids
---		Disable (most) strong recipes for casting -> perhaps just change some and make them available earlier for strand casting
---		Enable foundry to act as strand caster
---		Add aditional recipes for lava to molten metal to cover the other base metals (scaled to lower quantities) -> generally these should always yield 2 molten ores at once
---		Add foundry recipes for mixing liquid metals into alloys
--- Fulgora:
---		Recycler needs extra inventory slots (up to 14)
