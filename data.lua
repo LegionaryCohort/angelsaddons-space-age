@@ -79,9 +79,241 @@ data:extend{
   }
 }
 
--- TODO Vulcanus: 
---		Merge vanilla molten iron/copper with angels fluids
---		Disable (most) strong recipes for casting -> perhaps just change some and make them available earlier for strand casting
---		Enable foundry to act as strand caster
---		Add aditional recipes for lava to molten metal to cover the other base metals (scaled to lower quantities) -> generally these should always yield 2 molten ores at once
---		Add foundry recipes for mixing liquid metals into alloys
+-- VULCANUS
+-- Replaces the vanilla foundry production chain with more complex mixed molten metal production chains
+data:extend{
+  {
+    type = "item-subgroup",
+    name = "angelsaddons-space-age-vulcanus-smelting",
+    group = "angels-casting",
+    order = "x"
+  },
+  {
+    type = "recipe",
+    name = "angelsaddons-space-age-molten-iron-from-lava",
+    icons = {
+      { icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64 },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-iron.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { -10, 10 },
+      },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-nickel.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { 10, 10 },
+      },
+    },
+    category = "metallurgy",
+    subgroup = "angelsaddons-space-age-vulcanus-smelting",
+    order = "a",
+    auto_recycle = false,
+    enabled = false,
+    ingredients =
+    {
+      {type = "fluid", name = "lava", amount = 500},
+      {type = "fluid", name = "water", amount = 100},
+      {type = "item", name = "calcite", amount = 2},
+    },
+    energy_required = 16,
+    results =
+    {
+      {type = "fluid", name = "angels-liquid-molten-iron", amount = 240},
+      {type = "fluid", name = "angels-liquid-molten-nickel", amount = 120},
+      {type = "item", name = "angels-slag", amount = 8},
+    },
+    allow_productivity = true
+  },
+  {
+    type = "recipe",
+    name = "angelsaddons-space-age-molten-copper-from-lava",
+    icons = {
+      { icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64 },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-copper.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { -10, 10 },
+      },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-lead.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { 10, 10 },
+      },
+    },
+    category = "metallurgy",
+    subgroup = "angelsaddons-space-age-vulcanus-smelting",
+    order = "b",
+    auto_recycle = false,
+    enabled = false,
+    ingredients =
+    {
+      {type = "fluid", name = "lava", amount = 500},
+      {type = "fluid", name = "water", amount = 100},
+      {type = "item", name = "calcite", amount = 2},
+    },
+    energy_required = 16,
+    results =
+    {
+      {type = "fluid", name = "angels-liquid-molten-copper", amount = 240},
+      {type = "fluid", name = "angels-liquid-molten-lead", amount = 120},
+      {type = "item", name = "angels-slag", amount = 8},
+    },
+    allow_productivity = true
+  },
+  {
+    type = "recipe",
+    name = "angelsaddons-space-age-molten-tin-from-lava",
+    icons = {
+      { icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64 },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-tin.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { -10, 10 },
+      },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-zinc.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { 10, 10 },
+      },
+    },
+    category = "metallurgy",
+    subgroup = "angelsaddons-space-age-vulcanus-smelting",
+    order = "c",
+    auto_recycle = false,
+    enabled = false,
+    ingredients =
+    {
+      {type = "fluid", name = "lava", amount = 500},
+      {type = "fluid", name = "water", amount = 100},
+      {type = "item", name = "calcite", amount = 2},
+    },
+    energy_required = 16,
+    results =
+    {
+      {type = "fluid", name = "angels-liquid-molten-tin", amount = 240},
+      {type = "fluid", name = "angels-liquid-molten-zinc", amount = 120},
+      {type = "item", name = "angels-slag", amount = 8},
+    },
+    allow_productivity = true
+  },
+  {
+    type = "recipe",
+    name = "angelsaddons-space-age-molten-titanium-from-lava",
+    icons = {
+      { icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64 },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-titanium.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { -10, 10 },
+      },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-platinum.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { 10, 10 },
+      },
+    },
+    category = "metallurgy",
+    subgroup = "angelsaddons-space-age-vulcanus-smelting",
+    order = "d",
+    auto_recycle = false,
+    enabled = false,
+    ingredients =
+    {
+      {type = "fluid", name = "lava", amount = 500},
+      {type = "fluid", name = "water", amount = 100},
+      {type = "item", name = "calcite", amount = 4},
+    },
+    energy_required = 16,
+    results =
+    {
+      {type = "fluid", name = "angels-liquid-molten-titanium", amount = 180},
+      {type = "fluid", name = "angels-liquid-molten-platinum", amount = 60},
+      {type = "item", name = "angels-slag", amount = 12},
+    },
+    allow_productivity = true
+  },
+  {
+    type = "recipe",
+    name = "angelsaddons-space-age-molten-aluminium-from-lava",
+    icons = {
+      { icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64 },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-aluminium.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { -10, 10 },
+      },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-silver.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { 10, 10 },
+      },
+    },
+    category = "metallurgy",
+    subgroup = "angelsaddons-space-age-vulcanus-smelting",
+    order = "e",
+    auto_recycle = false,
+    enabled = false,
+    ingredients =
+    {
+      {type = "fluid", name = "lava", amount = 500},
+      {type = "fluid", name = "water", amount = 100},
+      {type = "item", name = "calcite", amount = 4},
+    },
+    energy_required = 16,
+    results =
+    {
+      {type = "fluid", name = "angels-liquid-molten-aluminium", amount = 180},
+      {type = "fluid", name = "angels-liquid-molten-silver", amount = 60},
+      {type = "item", name = "angels-slag", amount = 12},
+    },
+    allow_productivity = true
+  },
+  {
+    type = "recipe",
+    name = "angelsaddons-space-age-molten-silicon-from-lava",
+    icons = {
+      { icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size = 64 },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-silicon.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { -10, 10 },
+      },
+      {
+        icon = "__angelssmeltinggraphics__/graphics/icons/molten-gold.png",
+        icon_size = 64,
+        scale = 0.25,
+        shift = { 10, 10 },
+      },
+    },
+    category = "metallurgy",
+    subgroup = "angelsaddons-space-age-vulcanus-smelting",
+    order = "f",
+    auto_recycle = false,
+    enabled = false,
+    ingredients =
+    {
+      {type = "fluid", name = "lava", amount = 500},
+      {type = "fluid", name = "water", amount = 100},
+      {type = "item", name = "calcite", amount = 4},
+    },
+    energy_required = 16,
+    results =
+    {
+      {type = "fluid", name = "angels-liquid-molten-silicon", amount = 180},
+      {type = "fluid", name = "angels-liquid-molten-gold", amount = 60},
+      {type = "item", name = "angels-slag", amount = 12},
+    },
+    allow_productivity = true
+  },
+}

@@ -104,3 +104,62 @@ if mods["bobwarfare"] then
 		recipe = "firearm-magazine-carbon"
 	})
 end
+
+-- VULCANUS
+-- Replaces the vanilla foundry production chain with more complex mixed molten metal production chains
+local OV = angelsmods.functions.OV
+OV.remove_unlock("foundry", "concrete-from-molten-iron")
+OV.remove_unlock("foundry", "molten-iron")
+OV.remove_unlock("foundry", "molten-copper")
+OV.remove_unlock("foundry", "molten-iron-from-lava")
+OV.remove_unlock("foundry", "molten-copper-from-lava")
+OV.remove_unlock("foundry", "casting-iron")
+OV.remove_unlock("foundry", "casting-steel")
+OV.remove_unlock("foundry", "casting-copper")
+OV.remove_unlock("foundry", "casting-iron-gear-wheel")
+OV.remove_unlock("foundry", "casting-iron-stick")
+OV.remove_unlock("foundry", "casting-pipe")
+OV.remove_unlock("foundry", "casting-pipe-to-ground")
+OV.remove_unlock("foundry", "casting-copper-cable")
+OV.disable_recipe({
+	"concrete-from-molten-iron",
+	"molten-iron",
+	"molten-copper",
+	"molten-iron-from-lava",
+	"molten-copper-from-lava",
+	"casting-iron",
+	"casting-steel",
+	"casting-copper",
+	"casting-iron-gear-wheel",
+	"casting-iron-stick",
+	"casting-pipe",
+	"casting-pipe-to-ground",
+	"casting-copper-cable",
+})
+
+OV.add_unlock("foundry", "angelsaddons-space-age-molten-iron-from-lava")
+OV.add_unlock("foundry", "angelsaddons-space-age-molten-copper-from-lava")
+OV.add_unlock("foundry", "angelsaddons-space-age-molten-tin-from-lava")
+OV.add_unlock("foundry", "angelsaddons-space-age-molten-titanium-from-lava")
+OV.add_unlock("foundry", "angelsaddons-space-age-molten-aluminium-from-lava")
+OV.add_unlock("foundry", "angelsaddons-space-age-molten-silicon-from-lava")
+
+table.insert(data.raw["assembling-machine"]["foundry"].crafting_categories, "angels-strand-casting")
+table.insert(data.raw["assembling-machine"]["foundry"].crafting_categories, "angels-strand-casting-2")
+table.insert(data.raw["assembling-machine"]["foundry"].crafting_categories, "angels-strand-casting-3")
+table.insert(data.raw["assembling-machine"]["foundry"].crafting_categories, "angels-strand-casting-4")
+
+bobmods.lib.recipe.remove_ingredient("casting-low-density-structure", "molten-iron")
+bobmods.lib.recipe.remove_ingredient("casting-low-density-structure", "molten-copper")
+OV.patch_recipes({
+	{
+		name = "casting-low-density-structure",
+		ingredients = {
+			{type = "fluid", name = "angels-liquid-molten-aluminium", amount = 40},
+			{type = "fluid", name = "angels-liquid-molten-titanium", amount = 60},
+		},
+	},
+})
+
+OV.converter_fluid("molten-iron", "angels-liquid-molten-iron")
+OV.converter_fluid("molten-copper", "angels-liquid-molten-copper")
