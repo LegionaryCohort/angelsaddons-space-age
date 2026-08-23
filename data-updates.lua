@@ -105,6 +105,14 @@ if mods["bobwarfare"] then
 	})
 end
 
+data.raw["offshore-pump"]["angels-ground-water-pump"].surface_conditions = {
+    {
+        property = "pressure",
+        min = 1000,
+        max = 2000
+    }
+}
+
 -- GLEBA
 -- Enable access to Angel's ores on Gleba through iron and copper bacteria
 data.raw.item["copper-bacteria"].spoil_result = "angels-ore9-powder"
