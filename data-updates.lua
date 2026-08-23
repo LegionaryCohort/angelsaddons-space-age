@@ -104,3 +104,11 @@ if mods["bobwarfare"] then
 		recipe = "firearm-magazine-carbon"
 	})
 end
+
+data.raw["offshore-pump"]["angels-ground-water-pump"].surface_conditions = {
+    {
+        property = "pressure",
+        min = 1000,
+        max = 2000
+    }
+}
