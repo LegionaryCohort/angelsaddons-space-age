@@ -1,3 +1,8 @@
+Version: 0.0.15
+Date: 2026-08-23
+  Info:
+      - Changed spoil result on iron and copper bacteria to ferrous and cupric powder respectively
+	  - Added reverse sorting recipes for ferrous and cupric powder, yielding Angel's base ores in crushed form
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.14
 Date: 2026-08-22
