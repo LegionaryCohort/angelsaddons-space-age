@@ -1,3 +1,11 @@
+Version: 0.0.???
+Date: 2026-08-23
+  Info:
+	  - Removed all vanilla casting recipes, except for low density structure
+	  - Replaced vanilla recipes for molten iron & copper from lava with 6 new recipes producing mixes of Angel's molten metals
+	  - Adjusted the casting recipe for low density structure to use a mix of aluminium, titanium and plastic
+	  - Replaced all other occurences of vanilla molten iron & copper with their counterpart from Angel's
+	  - Enabled Angel's strand casting recipes for the foundry
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.14
 Date: 2026-08-22
