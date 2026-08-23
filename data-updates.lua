@@ -105,6 +105,14 @@ if mods["bobwarfare"] then
 	})
 end
 
+data.raw["offshore-pump"]["angels-ground-water-pump"].surface_conditions = {
+    {
+        property = "pressure",
+        min = 1000,
+        max = 2000
+    }
+}
+
 -- VULCANUS
 -- Replaces the vanilla foundry production chain with more complex mixed molten metal production chains
 local OV = angelsmods.functions.OV
