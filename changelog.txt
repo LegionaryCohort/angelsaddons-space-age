@@ -6,6 +6,8 @@ Date: 2026-08-23
 	  - Adjusted the casting recipe for low density structure to use a mix of aluminium, titanium and plastic
 	  - Replaced all other occurences of vanilla molten iron & copper with their counterpart from Angel's
 	  - Enabled Angel's strand casting recipes for the foundry
+      - Changed spoil result on iron and copper bacteria to ferrous and cupric powder respectively
+	  - Added reverse sorting recipes for ferrous and cupric powder, yielding Angel's base ores in crushed form
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.14
 Date: 2026-08-22

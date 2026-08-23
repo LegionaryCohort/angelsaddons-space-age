@@ -171,3 +171,17 @@ OV.patch_recipes({
 
 OV.converter_fluid("molten-iron", "angels-liquid-molten-iron")
 OV.converter_fluid("molten-copper", "angels-liquid-molten-copper")
+
+-- GLEBA
+-- Enable access to Angel's ores on Gleba through iron and copper bacteria
+data.raw.item["copper-bacteria"].spoil_result = "angels-ore9-powder"
+data.raw.item["iron-bacteria"].spoil_result = "angels-ore8-powder"
+local tech_ore_powderizer = data.raw.technology["angels-ore-powderizer"]
+table.insert(tech_ore_powderizer.effects, {
+	type = "unlock-recipe",
+	recipe = "angelsaddons-space-age-ferrous-powder-reverse-sorting"
+})
+table.insert(tech_ore_powderizer.effects, {
+	type = "unlock-recipe",
+	recipe = "angelsaddons-space-age-cupric-powder-reverse-sorting"
+})

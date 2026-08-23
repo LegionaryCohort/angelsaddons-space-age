@@ -317,3 +317,66 @@ data:extend{
     allow_productivity = true
   },
 }
+
+-- GLEBA
+-- Enable access to Angel's ores on Gleba through iron and copper bacteria
+data:extend{
+  {
+    type = "recipe",
+    name = "angelsaddons-space-age-ferrous-powder-reverse-sorting",
+    category = "angels-ore-sorting-2",
+    subgroup = "angels-ore-sorting-t2",
+    energy_required = 2,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "angels-ore8-powder", amount = 6 },
+    },
+    results = {
+      { type = "item", name = "angels-ore1-crushed", amount = 2 },
+      { type = "item", name = "angels-ore2-crushed", amount = 2 },
+      { type = "item", name = "angels-ore5-crushed", amount = 2 },
+    },
+    icons = {
+      { icon = "__angelsrefininggraphics__/graphics/icons/sort-icon.png", icon_size = 32 },
+      {
+        icon = "__angelsrefininggraphics__/graphics/icons/angels-ore8-powder.png",
+        icon_size = 32,
+        scale = 0.5,
+        shift = { -10, 10 },
+      },
+    },
+    always_show_products = true,
+    show_amount_in_title = false,
+    order = "g-a",
+  },
+  {
+    type = "recipe",
+    name = "angelsaddons-space-age-cupric-powder-reverse-sorting",
+    category = "angels-ore-sorting-2",
+    subgroup = "angels-ore-sorting-t2",
+    energy_required = 2,
+    enabled = false,
+    auto_recycle = false,
+    ingredients = {
+      { type = "item", name = "angels-ore9-powder", amount = 6 },
+    },
+    results = {
+      { type = "item", name = "angels-ore3-crushed", amount = 2 },
+      { type = "item", name = "angels-ore4-crushed", amount = 2 },
+      { type = "item", name = "angels-ore6-crushed", amount = 2 },
+    },
+    icons = {
+      { icon = "__angelsrefininggraphics__/graphics/icons/sort-icon.png", icon_size = 32 },
+      {
+        icon = "__angelsrefininggraphics__/graphics/icons/angels-ore9-powder.png",
+        icon_size = 32,
+        scale = 0.5,
+        shift = { -10, 10 },
+      },
+    },
+    always_show_products = true,
+    show_amount_in_title = false,
+    order = "h-a",
+  }
+}
