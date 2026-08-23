@@ -78,3 +78,10 @@ data:extend{
     order = "i [slag-processing-dissolution]-a",
   }
 }
+
+-- TODO Vulcanus: 
+--		Merge vanilla molten iron/copper with angels fluids
+--		Disable (most) strong recipes for casting -> perhaps just change some and make them available earlier for strand casting
+--		Enable foundry to act as strand caster
+--		Add aditional recipes for lava to molten metal to cover the other base metals (scaled to lower quantities) -> generally these should always yield 2 molten ores at once
+--		Add foundry recipes for mixing liquid metals into alloys
