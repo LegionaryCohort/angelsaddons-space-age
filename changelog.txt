@@ -6,6 +6,7 @@ Date: 2026-08-22
 	  - Reverted the compatibility fixes for Bob's Turbo Transport Belts (has been fixed within Bob's mods)
 	  - Changed recipe for coal filters to require carbon instead of coal (allowing manufacturing of filters in space)
 	  - Added recipe for breaking down metallic asteroid chunks into slag slurry (enabling production chains for Angel's ores in space through crstyllization)
+	  - Added an extra inventory slot to the recycler, so that the additional green circuits don't vanish into the void
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.13
 Date: 2026-02-13
