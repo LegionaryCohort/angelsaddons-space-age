@@ -6,9 +6,11 @@ Date: 2026-08-23
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.14
 Date: 2026-08-22
-  Compatibility:
+  Bugs & Compatibility:
       - Replaced all occurences of angels-liquid-sulfuric-acid back to vanilla sulfuric-acid (Matching the recent change in Angels Petrochem 2.0.2)
 	  - Reverted the compatibility fixes for Bob's Turbo Transport Belts (has been fixed within Bob's mods)
+	  - Added an extra inventory slot to the recycler, so that the additional green circuits don't vanish into the void
+  Info:
 	  - Changed recipe for coal filters to require carbon instead of coal (allowing manufacturing of filters in space)
 	  - Added recipe for breaking down metallic asteroid chunks into slag slurry (enabling production chains for Angel's ores in space through crstyllization)
 ---------------------------------------------------------------------------------------------------
